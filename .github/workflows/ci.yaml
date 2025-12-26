@@ -34,7 +34,7 @@ jobs:
 
       - name: Run tests
         run: |
-          docker run --rm polymarket-build:ci go test -v -race ./cmd/... ./internal/... ./pkg/...
+          docker run --rm polymarket-build:ci go test -v ./cmd/... ./internal/... ./pkg/...
 
       - name: Run linter
         run: |

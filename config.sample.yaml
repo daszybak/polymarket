@@ -1,0 +1,45 @@
+# Polymarket Trading Engine Configuration
+#
+# Copy this file to config.yaml and replace placeholders with actual values.
+# You can use `envsubst` to replace variables:
+#
+#     envsubst < config.sample.yaml > config.yaml
+
+polymarket:
+  # Polymarket API endpoints
+  ws_url: '${POLYMARKET_WS_URL}'
+  gamma_url: '${POLYMARKET_GAMMA_URL}'
+  clob_url: '${POLYMARKET_CLOB_URL}'
+
+  # Events to track (by slug)
+  events: [${POLYMARKET_EVENTS}]
+
+# Redis configuration (for shadow order book)
+redis:
+  host: '${REDIS_HOST}'
+  port: ${REDIS_PORT}
+  password: '${REDIS_PASSWORD}'
+  db: ${REDIS_DB}
+
+# Trading configuration
+trading:
+  # Wallet configuration
+  wallet:
+    private_key: '${WALLET_PRIVATE_KEY}'
+    address: '${WALLET_ADDRESS}'
+
+  # Polygon network
+  polygon:
+    rpc_url: '${POLYGON_RPC_URL}'
+    chain_id: ${POLYGON_CHAIN_ID}
+
+  # Risk limits
+  limits:
+    max_position_size: ${MAX_POSITION_SIZE}
+    max_order_size: ${MAX_ORDER_SIZE}
+    min_spread: ${MIN_SPREAD}
+
+# Logging
+logging:
+  level: '${LOG_LEVEL}'
+  format: '${LOG_FORMAT}'
